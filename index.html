@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVT Group - Technical Support Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Global Styles Based on Brand Bible */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Primary Brand Colors */
+            --primary-blue: #005f73;
+            --secondary-teal: #0a9396;
+            --warm-orange: #ca6702;
+            --gold-yellow: #ee9b00;
+            --light-gray: #f2f2f2;
+            --dark-gray: #333333;
+            
+            /* Typography Scale */
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Lato', sans-serif;
+        }
+        
+        body {
+            font-family: var(--body-font);
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+        
+        h2:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-teal);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header Styling */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 1rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        .logo-text {
+            font-family: var(--heading-font);
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* Brand Selector */
+        .brand-selector {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            z-index: 101;
+        }
+        
+        .brand-selector select {
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-family: var(--heading-font);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .brand-selector select:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .brand-selector select option {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        
+        /* Navigation */
+        nav {
+            width: 100%;
+            background-color: var(--secondary-teal);
+            padding: 0.75rem 0;
+            border-radius: 40px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: var(--heading-font);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin: 0 1.2rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--gold-yellow);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border-top: 5px solid var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Intro Section */
+        .intro-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .intro-section h1 {
+            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .intro-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        /* System Status */
+        .system-status {
+            background: linear-gradient(135deg, #f8f9fa 0%, #edf2f7 100%);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+        }
+        
+        .system-status h3 {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+        
+        .system-status h3:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+        }
+        
+        .status-indicators {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.25rem 0;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .status-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .status-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+        
+        .operational {
+            background-color: #10b981;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+        
+        .issue {
+            background-color: #f59e0b;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+        }
+        
+        .outage {
+            background-color: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+        
+        .status-name {
+            font-weight: 600;
+            margin-right: 12px;
+            font-family: var(--heading-font);
+            font-size: 0.95rem;
+        }
+        
+        .status-message {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .status-update {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .view-history {
+            color: var(--secondary-teal);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: var(--heading-font);
+            transition: all 0.3s ease;
+        }
+        
+        .view-history:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+        
+        /* Search */
+        .search-container {
+            display: flex;
+            margin: 2.5rem 0;
+            position: relative;
+        }
+        
+        #support-search {
+            flex: 1;
+            padding: 1rem 1.25rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            font-family: var(--body-font);
+        }
+        
+        #support-search:focus {
+            border-color: var(--secondary-teal);
+            box-shadow: 0 0 0 3px rgba(10, 147, 150, 0.2);
+            outline: none;
+        }
+        
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--heading-font);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Support Card Grid */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin: 2.5rem 0;
+        }
+        
+        .section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+        }
+        
+        .support-card {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 4px solid var(--secondary-teal);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--warm-orange);
+        }
+        
+        .support-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+        }
+        
+        .support-card:hover .support-icon {
+            background: linear-gradient(135deg, var(--warm-orange) 0%, var(--gold-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .support-card h3 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--primary-blue);
+            font-size: 1.35rem;
+            transition: all 0.3s ease;
+        }
+        
+        .support-card:hover h3 {
+            color: var(--warm-orange);
+        }
+        
+        .support-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        
+        .support-links {
+            list-style: none;
+            margin-top: auto;
+        }
+        
+        .support-links li {
+            margin-bottom: 0.625rem;
+        }
+        
+        .support-links a {
+            color: var(--secondary-teal);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .support-links a:before {
+            content: "→";
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .support-links a:hover {
+            color: var(--warm-orange);
+            transform: translateX(3px);
+        }
+        
+        .support-links a:hover:before {
+            transform: translateX(3px);
+        }
+        
+        /* Buttons & CTAs */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--warm-orange) 0%, var(--gold-yellow) 100%);
+            color: white;
+            font-family: var(--heading-font);
+            font-weight: 600;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(202, 103, 2, 0.2);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(202, 103, 2, 0.3);
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-blue);
+            font-family: var(--heading-font);
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-button:hover {
+            background-color: var(--primary-blue);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 95, 115, 0.2);
+        }
+        
+        /* Training Video Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.75rem;
+            margin-top: 2rem;
+        }
+        
+        .video-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-thumbnail {
+            height: 180px;
+            background-color: var(--light-gray);
+            position: relative;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%);
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .play-icon::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-left: 20px solid var(--primary-blue);
+            border-bottom: 12px solid transparent;
+            margin-left: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .video-thumbnail:hover .play-icon {
+            transform: translate(-50%, -50%) scale(1.1);
+            background-color: white;
+        }
+        
+        .video-thumbnail:hover .play-icon::after {
+            border-left-color: var(--warm-orange);
+        }
+        
+        .video-info {
+            padding: 1.25rem;
+        }
+        
+        .video-title {
+            font-weight: 700;
+            font-family: var(--heading-font);
+            margin-bottom: 0.625rem;
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover .video-title {
+            color: var(--warm-orange);
+        }
+        
+        .video-duration {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.625rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .video-duration:before {
+            content: "⏱";
+            margin-right: 5px;
+        }
+        
+        .video-description {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        /* FAQ Section */
+        .accordion {
+            margin-bottom: 1.25rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .accordion:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+        
+        .accordion-header {
+            background-color: #f8f9fa;
+            padding: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .accordion-header:hover {
+            background-color: #f1f3f5;
+            border-left: 4px solid var(--secondary-teal);
+        }
+        
+        .accordion.active .accordion-header {
+            border-left: 4px solid var(--warm-orange);
+            background-color: #f1f3f5;
+        }
+        
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            font-family: var(--heading-font);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion.active .accordion-header h3 {
+            color: var(--warm-orange);
+        }
+        
+        .accordion-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e5e7eb;
+            color: var(--dark-gray);
+            font-weight: 700;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion.active .accordion-icon {
+            background-color: var(--warm-orange);
+            color: white;
+            transform: rotate(45deg);
+        }
+        
+        .accordion-content {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: white;
+        }
+        
+        .accordion.active .accordion-content {
+            max-height: 500px;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+        
+        .accordion-content p {
+            margin-bottom: 1rem;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .accordion-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Resource Links */
+        .resource-links {
+            list-style: none;
+            margin: 1.25rem 0;
+        }
+        
+        .resource-links li {
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 0.75rem;
+        }
+        
+        .resource-links li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        
+        .resource-links a {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-teal);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .resource-links a:before {
+            content: "📄";
+            margin-right: 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-links a:hover {
+            color: var(--warm-orange);
+            transform: translateX(5px);
+        }
+        
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+        
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .chat-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 2rem;
+            width: 380px;
+            height: 500px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-window.active {
+            display: flex;
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-title {
+            font-family: var(--heading-font);
+            font-weight: 600;
+        }
+        
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-chat:hover {
+            transform: rotate(90deg);
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+        }
+        
+        .chat-input-container {
+            padding: 1rem;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 25px;
+            font-family: var(--body-font);
+            font-size: 0.95rem;
+        }
+        
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--secondary-teal);
+        }
+        
+        .send-message {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .send-message:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            margin-top: 2.5rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #edf2f7 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-form h3 {
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            color: var(--primary-blue);
+        }
+        
+        .contact-form h3:after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-family: var(--heading-font);
+            font-size: 0.95rem;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: white;
+            font-family: var(--body-font);
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--secondary-teal);
+            box-shadow: 0 0 0 3px rgba(10, 147, 150, 0.2);
+            outline: none;
+        }
+        
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+        
+        footer:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--warm-orange) 0%, var(--gold-yellow) 100%);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-family: var(--heading-font);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column h3:after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--gold-yellow);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--gold-yellow);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .brand-selector {
+                position: static;
+                margin-top: 1rem;
+                text-align: center;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                padding: 1rem;
+            }
+            
+            nav a {
+                margin: 0.25rem 0.5rem;
+                font-size: 0.85rem;
+            }
+            
+            .support-grid, .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .status-indicators {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .chat-window {
+                width: 90vw;
+                right: 5vw;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Loading Animation */
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 2000;
+            font-family: var(--heading-font);
+            font-weight: 600;
+        }
+        
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="brand-selector">
+                <select id="brand-selector">
+                    <option value="pvt-main">PVT Hostel - Main</option>
+                    <option value="pvt-east">PVT Hostel - East</option>
+                    <option value="pvt-west">PVT Hostel - West</option>
+                    <option value="studionyne">StudioNYNE</option>
+                    <option value="king-legend">King Legend, Inc.</option>
+                    <option value="urban-stay">Urban Stay Hostels</option>
+                </select>
+            </div>
+            
+            <div class="header-container">
+                <div class="logo">
+                    <i class="fas fa-hotel" style="font-size: 3rem; color: white;"></i>
+                    <div class="logo-text">PVT Group Support</div>
+                </div>
+                
+                <nav>
+                    <a href="#hospitality">Hospitality</a>
+                    <a href="#media">Media & Creative</a>
+                    <a href="#marketing">Marketing</a>
+                    <a href="#consulting">Business Consulting</a>
+                    <a href="#technology">Technology</a>
+                    <a href="#legal">Legal & Compliance</a>
+                    <a href="#partners">Owner Resources</a>
+                    <a href="#mac-requests">MAC Requests</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="intro-section">
+                <h1>Welcome to PVT Group Support Hub</h1>
+                <p>Your comprehensive resource center for all technical support, documentation, and service management across our hospitality and business portfolio.</p>
+            </div>
+            
+            <div class="system-status">
+                <h3>System Status</h3>
+                <div class="status-indicators">
+                    <div class="status-item">
+                        <span class="status-dot operational"></span>
+                        <span class="status-name">Booking Engine</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot operational"></span>
+                        <span class="status-name">Payment Processing</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot operational"></span>
+                        <span class="status-name">Channel Manager</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot operational"></span>
+                        <span class="status-name">Staff Portal</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot operational"></span>
+                        <span class="status-name">Guest Portal</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot issue"></span>
+                        <span class="status-name">Reporting System</span>
+                        <span class="status-message">Performance issues - under maintenance</span>
+                    </div>
+                </div>
+                <div class="status-update">
+                    <span id="last-updated">Last Updated: Loading...</span>
+                    <a href="#detailed-status" class="view-history">View Incident History</a>
+                </div>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="support-search" placeholder="Search for support topics, FAQs, or documentation...">
+                <button class="search-button" onclick="performSearch()">Search</button>
+            </div>
+            
+            <!-- Hospitality Services Section -->
+            <div class="section" id="hospitality">
+                <h2>Hospitality Services</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <h3>Property Management</h3>
+                        <p>Comprehensive tools for managing your hospitality properties efficiently.</p>
+                        <ul class="support-links">
+                            <li><a href="#room-management">Room Management</a></li>
+                            <li><a href="#housekeeping">Housekeeping Dashboard</a></li>
+                            <li><a href="#maintenance">Maintenance Requests</a></li>
+                            <li><a href="#inventory">Inventory Tracking</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Reservation System</h3>
+                        <p>Advanced booking and reservation management across all properties.</p>
+                        <ul class="support-links">
+                            <li><a href="#booking-engine">Booking Engine Setup</a></li>
+                            <li><a href="#availability">Availability Calendar</a></li>
+                            <li><a href="#pricing">Dynamic Pricing</a></li>
+                            <li><a href="#group-bookings">Group Bookings</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Guest Experience</h3>
+                        <p>Tools and resources to enhance guest satisfaction and loyalty.</p>
+                        <ul class="support-links">
+                            <li><a href="#check-in">Self Check-in</a></li>
+                            <li><a href="#guest-portal">Guest Portal</a></li>
+                            <li><a href="#feedback">Feedback System</a></li>
+                            <li><a href="#loyalty">Loyalty Programs</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Revenue Management</h3>
+                        <p>Optimize your revenue with advanced analytics and pricing strategies.</p>
+                        <ul class="support-links">
+                            <li><a href="#revenue-reports">Revenue Reports</a></li>
+                            <li><a href="#forecasting">Demand Forecasting</a></li>
+                            <li><a href="#rate-management">Rate Management</a></li>
+                            <li><a href="#competitor-analysis">Competitor Analysis</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Media & Creative Services Section -->
+            <div class="section" id="media">
+                <h2>Media & Creative Services</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Photography & Video</h3>
+                        <p>Professional content creation services for your properties.</p>
+                        <ul class="support-links">
+                            <li><a href="#photo-guidelines">Photography Guidelines</a></li>
+                            <li><a href="#video-production">Video Production</a></li>
+                            <li><a href="#360-tours">360° Virtual Tours</a></li>
+                            <li><a href="#drone-footage">Drone Services</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Design Services</h3>
+                        <p>Complete branding and design solutions for all marketing needs.</p>
+                        <ul class="support-links">
+                            <li><a href="#brand-design">Brand Design</a></li>
+                            <li><a href="#print-materials">Print Materials</a></li>
+                            <li><a href="#web-design">Web Design</a></li>
+                            <li><a href="#signage">Signage & Wayfinding</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Content Marketing</h3>
+                        <p>Strategic content creation to boost your online presence.</p>
+                        <ul class="support-links">
+                            <li><a href="#blog-content">Blog Management</a></li>
+                            <li><a href="#social-media">Social Media Content</a></li>
+                            <li><a href="#email-campaigns">Email Campaigns</a></li>
+                            <li><a href="#seo-content">SEO Content</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3>StudioNYNE Production</h3>
+                        <p>Full-service production capabilities for premium content.</p>
+                        <ul class="support-links">
+                            <li><a href="#studio-booking">Studio Booking</a></li>
+                            <li><a href="#equipment-rental">Equipment Rental</a></li>
+                            <li><a href="#post-production">Post-Production</a></li>
+                            <li><a href="#live-streaming">Live Streaming</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technology & Integration Section -->
+            <div class="section" id="technology">
+                <h2>Technology & Integration</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3>API Documentation</h3>
+                        <p>Complete API reference for system integrations.</p>
+                        <ul class="support-links">
+                            <li><a href="#api-overview">API Overview</a></li>
+                            <li><a href="#authentication">Authentication</a></li>
+                            <li><a href="#endpoints">API Endpoints</a></li>
+                            <li><a href="#webhooks">Webhooks</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <h3>Channel Manager</h3>
+                        <p>Synchronize inventory across all booking channels.</p>
+                        <ul class="support-links">
+                            <li><a href="#channel-setup">Channel Setup</a></li>
+                            <li><a href="#ota-connections">OTA Connections</a></li>
+                            <li><a href="#sync-settings">Sync Settings</a></li>
+                            <li><a href="#mapping">Rate Mapping</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3>Payment Systems</h3>
+                        <p>Secure payment processing and financial management.</p>
+                        <ul class="support-links">
+                            <li><a href="#payment-gateway">Payment Gateway</a></li>
+                            <li><a href="#pos-integration">POS Integration</a></li>
+                            <li><a href="#reconciliation">Reconciliation</a></li>
+                            <li><a href="#refunds">Refunds & Disputes</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Automation</h3>
+                        <p>Streamline operations with intelligent automation.</p>
+                        <ul class="support-links">
+                            <li><a href="#guest-messaging">Auto Messaging</a></li>
+                            <li><a href="#workflow-automation">Workflows</a></li>
+                            <li><a href="#triggers">Event Triggers</a></li>
+                            <li><a href="#ai-tools">AI Assistance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MAC Requests Section -->
+            <div class="section" id="mac-requests">
+                <h2>Move, Add, Change (MAC) Requests</h2>
+                <p>Submit requests for system changes, new features, or service modifications.</p>
+                
+                <div class="contact-form">
+                    <h3>Submit a MAC Request</h3>
+                    <form id="macRequestForm">
+                        <div class="form-group">
+                            <label for="organization">Organization/Brand</label>
+                            <select id="organization" name="organization" required>
+                                <option value="">Select Organization</option>
+                                <option value="pvt-main">PVT Hostel - Main Property</option>
+                                <option value="pvt-east">PVT Hostel - East Location</option>
+                                <option value="pvt-west">PVT Hostel - West Location</option>
+                                <option value="studionyne">StudioNYNE</option>
+                                <option value="king-legend">King Legend, Inc.</option>
+                                <option value="urban-stay">Urban Stay Hostels</option>
+                                <option value="other">Other (Please specify)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requestType">Request Type</label>
+                            <select id="requestType" name="requestType" required>
+                                <option value="">Select Request Type</option>
+                                <option value="move">Move - Relocate Services/Data</option>
+                                <option value="add">Add - New Service/Account/Feature</option>
+                                <option value="change">Change - Modify Existing Configuration</option>
+                                <option value="remove">Remove - Discontinue Service/Account</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="priority">Priority Level</label>
+                            <select id="priority" name="priority" required>
+                                <option value="low">Low - Complete within 5 business days</option>
+                                <option value="medium">Medium - Complete within 2 business days</option>
+                                <option value="high">High - Complete within 24 hours</option>
+                                <option value="critical">Critical - Urgent (Business Impact)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requestDescription">Detailed Description</label>
+                            <textarea id="requestDescription" name="requestDescription" placeholder="Please provide a detailed description of your request..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requestorEmail">Your Email</label>
+                            <input type="email" id="requestorEmail" name="requestorEmail" required>
+                        </div>
+                        
+                        <button type="submit" class="cta-button">Submit MAC Request</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="section" id="faq">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>How do I reset my password?</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>To reset your password, click on the "Forgot Password" link on the login page. Enter your email address, and we'll send you a password reset link. Follow the instructions in the email to create a new password.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>How do I connect multiple properties?</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>You can connect multiple properties through the Multi-Property Dashboard. Navigate to Settings > Properties > Add New Property. Follow the setup wizard to configure each property with its unique settings while maintaining centralized control.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>What integrations are available?</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We support integrations with major OTAs (Booking.com, Expedia, Airbnb), payment gateways (Stripe, PayPal, Square), accounting software (QuickBooks, Xero), and marketing platforms (Mailchimp, HubSpot). Custom integrations are also available through our API.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-toggle" onclick="toggleChat()">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <span class="chat-title">Support Chat</span>
+                <button class="close-chat" onclick="toggleChat()">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <p style="text-align: center; color: #666; padding: 20px;">Welcome! How can we help you today?</p>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+                <button class="send-message" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>PVT Group</h3>
+                <p class="footer-contact">
+                    4460 Christophe Colomb<br>
+                    Montreal, QC, H2J 3G5<br>
+                    Phone: 514-400-6369<br>
+                    Email: hello@market.pvthostel.ca
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#api">API Reference</a></li>
+                    <li><a href="#status">System Status</a></li>
+                    <li><a href="#training">Training Resources</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#mac-requests">MAC Requests</a></li>
+                    <li><a href="#feedback">Submit Feedback</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#webinars">Webinars</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#partners">Partner Portal</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 PVT Group. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Update last updated time
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit',
+                timeZoneName: 'short'
+            };
+            const formattedTime = now.toLocaleDateString('en-US', options);
+            document.getElementById('last-updated').textContent = `Last Updated: ${formattedTime}`;
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTime();
+            setInterval(updateTime, 60000); // Update every minute
+            
+            // Initialize accordions
+            initAccordions();
+            
+            // Initialize form handlers
+            initForms();
+            
+            // Initialize brand selector
+            initBrandSelector();
+        });
+        
+        // Accordion functionality
+        function initAccordions() {
+            const accordions = document.querySelectorAll('.accordion');
+            
+            accordions.forEach(accordion => {
+                const header = accordion.querySelector('.accordion-header');
+                
+                header.addEventListener('click', function() {
+                    accordion.classList.toggle('active');
+                    const icon = this.querySelector('.accordion-icon');
+                    icon.textContent = accordion.classList.contains('active') ? '−' : '+';
+                });
+            });
+        }
+        
+        // Form submission handlers
+        function initForms() {
+            // MAC Request Form
+            const macForm = document.getElementById('macRequestForm');
+            if (macForm) {
+                macForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(macForm);
+                    const data = Object.fromEntries(formData);
+                    
+                    // Show success message
+                    showToast('MAC Request submitted successfully! Ticket #' + generateTicketNumber());
+                    
+                    // Reset form
+                    macForm.reset();
+                    
+                    // In production, send data to server
+                    console.log('MAC Request Data:', data);
+                });
+            }
+        }
+        
+        // Brand selector functionality
+        function initBrandSelector() {
+            const selector = document.getElementById('brand-selector');
+            if (selector) {
+                selector.addEventListener('change', function(e) {
+                    const brand = e.target.value;
+                    showToast(`Switched to ${e.target.options[e.target.selectedIndex].text}`);
+                    // In production, update UI based on brand selection
+                });
+            }
+        }
+        
+        // Chat functionality
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.classList.toggle('active');
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            
+            if (input.value.trim()) {
+                // Add user message
+                const userMsg = document.createElement('div');
+                userMsg.style.cssText = 'text-align: right; margin: 10px 0;';
+                userMsg.innerHTML = `<span style="background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal)); color: white; padding: 8px 12px; border-radius: 18px; display: inline-block; max-width: 70%;">${input.value}</span>`;
+                messages.appendChild(userMsg);
+                
+                // Simulate bot response
+                setTimeout(() => {
+                    const botMsg = document.createElement('div');
+                    botMsg.style.cssText = 'text-align: left; margin: 10px 0;';
+                    botMsg.innerHTML = `<span style="background: #f1f3f5; padding: 8px 12px; border-radius: 18px; display: inline-block; max-width: 70%;">Thank you for your message. A support agent will assist you shortly.</span>`;
+                    messages.appendChild(botMsg);
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
+                
+                input.value = '';
+                messages.scrollTop = messages.scrollHeight;
+            }
+        }
+        
+        // Search functionality
+        function performSearch() {
+            const searchInput = document.getElementById('support-search');
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                showToast(`Searching for: ${searchTerm}`);
+                // In production, implement actual search functionality
+            }
+        }
+        
+        // Toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Generate ticket number
+        function generateTicketNumber() {
+            return 'TKT-' + Date.now().toString().slice(-8);
+        }
+        
+        // Handle Enter key in chat input
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        // Handle Enter key in search input
+        document.getElementById('support-search').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2802 @@
+    <style>
+        /* Global Styles Based on Brand Bible */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Primary Brand Colors */
+            --primary-blue: #005f73;
+            --secondary-teal: #0a9396;
+            --warm-orange: #ca6702;
+            --gold-yellow: #ee9b00;
+            --light-gray: #f2f2f2;
+            --dark-gray: #333333;
+            
+            /* Typography Scale */
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Lato', sans-serif;
+        }
+        
+        body {
+            font-family: var(--body-font);
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+        
+        h2:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-teal);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header Styling */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 1rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        .logo-text {
+            font-family: var(--heading-font);
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* Brand Selector */
+        .brand-selector {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            z-index: 101;
+        }
+        
+        .brand-selector select {
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-family: var(--heading-font);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .brand-selector select:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Navigation */
+        nav {
+            width: 100%;
+            background-color: var(--secondary-teal);
+            padding: 0.75rem 0;
+            border-radius: 40px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: var(--heading-font);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin: 0 1.2rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--gold-yellow);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border-top: 5px solid var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Intro Section */
+        .intro-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .intro-section h1 {
+            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .intro-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        /* System Status */
+        .system-status {
+            background: linear-gradient(135deg, #f8f9fa 0%, #edf2f7 100%);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+        }
+        
+        .system-status h3 {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+        
+        .system-status h3:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+        }
+        
+        .status-indicators {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.25rem 0;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .status-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .status-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+        
+        .operational {
+            background-color: #10b981;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+        
+        .issue {
+            background-color: #f59e0b;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+        }
+        
+        .outage {
+            background-color: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+        
+        .status-name {
+            font-weight: 600;
+            margin-right: 12px;
+            font-family: var(--heading-font);
+            font-size: 0.95rem;
+        }
+        
+        .status-message {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .status-update {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .view-history {
+            color: var(--secondary-teal);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: var(--heading-font);
+            transition: all 0.3s ease;
+        }
+        
+        .view-history:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+        
+        /* Search */
+        .search-container {
+            display: flex;
+            margin: 2.5rem 0;
+            position: relative;
+        }
+        
+        #support-search {
+            flex: 1;
+            padding: 1rem 1.25rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            font-family: var(--body-font);
+        }
+        
+        #support-search:focus {
+            border-color: var(--secondary-teal);
+            box-shadow: 0 0 0 3px rgba(10, 147, 150, 0.2);
+            outline: none;
+        }
+        
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--heading-font);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Support Card Grid */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin: 2.5rem 0;
+        }
+        
+        .section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+        }
+        
+        .support-card {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 4px solid var(--secondary-teal);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--warm-orange);
+        }
+        
+        .support-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .support-card:hover .support-icon {
+            background: linear-gradient(135deg, var(--warm-orange) 0%, var(--gold-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .support-card h3 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--primary-blue);
+            font-size: 1.35rem;
+            transition: all 0.3s ease;
+        }
+        
+        .support-card:hover h3 {
+            color: var(--warm-orange);
+        }
+        
+        .support-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        
+        .support-links {
+            list-style: none;
+            margin-top: auto;
+        }
+        
+        .support-links li {
+            margin-bottom: 0.625rem;
+        }
+        
+        .support-links a {
+            color: var(--secondary-teal);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .support-links a:before {
+            content: "→";
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .support-links a:hover {
+            color: var(--warm-orange);
+            transform: translateX(3px);
+        }
+        
+        .support-links a:hover:before {
+            transform: translateX(3px);
+        }
+        
+        /* Buttons & CTAs */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--warm-orange) 0%, var(--gold-yellow) 100%);
+            color: white;
+            font-family: var(--heading-font);
+            font-weight: 600;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(202, 103, 2, 0.2);
+            text-align: center;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(202, 103, 2, 0.3);
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-blue);
+            font-family: var(--heading-font);
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-button:hover {
+            background-color: var(--primary-blue);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 95, 115, 0.2);
+        }
+        
+        /* Training Video Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.75rem;
+            margin-top: 2rem;
+        }
+        
+        .video-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-thumbnail {
+            height: 180px;
+            background-color: var(--light-gray);
+            position: relative;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%);
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .play-icon::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-left: 20px solid var(--primary-blue);
+            border-bottom: 12px solid transparent;
+            margin-left: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .video-thumbnail:hover .play-icon {
+            transform: translate(-50%, -50%) scale(1.1);
+            background-color: white;
+        }
+        
+        .video-thumbnail:hover .play-icon::after {
+            border-left-color: var(--warm-orange);
+        }
+        
+        .video-info {
+            padding: 1.25rem;
+        }
+        
+        .video-title {
+            font-weight: 700;
+            font-family: var(--heading-font);
+            margin-bottom: 0.625rem;
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover .video-title {
+            color: var(--warm-orange);
+        }
+        
+        .video-duration {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.625rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .video-duration:before {
+            content: "⏱";
+            margin-right: 5px;
+        }
+        
+        .video-description {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        /* FAQ Section */
+        .accordion {
+            margin-bottom: 1.25rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .accordion:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+        
+        .accordion-header {
+            background-color: #f8f9fa;
+            padding: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .accordion-header:hover {
+            background-color: #f1f3f5;
+            border-left: 4px solid var(--secondary-teal);
+        }
+        
+        .accordion.active .accordion-header {
+            border-left: 4px solid var(--warm-orange);
+            background-color: #f1f3f5;
+        }
+        
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            font-family: var(--heading-font);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion.active .accordion-header h3 {
+            color: var(--warm-orange);
+        }
+        
+        .accordion-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e5e7eb;
+            color: var(--dark-gray);
+            font-weight: 700;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion.active .accordion-icon {
+            background-color: var(--warm-orange);
+            color: white;
+            transform: rotate(45deg);
+        }
+        
+        .accordion-content {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: white;
+        }
+        
+        .accordion.active .accordion-content {
+            max-height: 500px;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+        
+        .accordion-content p {
+            margin-bottom: 1rem;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .accordion-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Resource Links */
+        .resource-links {
+            list-style: none;
+            margin: 1.25rem 0;
+        }
+        
+        .resource-links li {
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 0.75rem;
+        }
+        
+        .resource-links li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        
+        .resource-links a {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-teal);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .resource-links a:before {
+            content: "📄";
+            margin-right: 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-links a:hover {
+            color: var(--warm-orange);
+            transform: translateX(5px);
+        }
+        
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+        
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .chat-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            margin-top: 2.5rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #edf2f7 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-form h3 {
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            color: var(--primary-blue);
+        }
+        
+        .contact-form h3:after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-family: var(--heading-font);
+            font-size: 0.95rem;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: white;
+            font-family: var(--body-font);
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--secondary-teal);
+            box-shadow: 0 0 0 3px rgba(10, 147, 150, 0.2);
+            outline: none;
+        }
+        
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+        
+        footer:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--warm-orange) 0%, var(--gold-yellow) 100%);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-family: var(--heading-font);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column h3:after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--gold-yellow);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--gold-yellow);
+            color: var(--dark-gray);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #f0f0f0;
+            }
+            
+            .section, .video-card {
+                background: #2a2a2a;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            }
+            
+            .support-card {
+                background-color: #2a2a2a;
+            }
+            
+            h1, h2, h3 {
+                color: var(--secondary-teal);
+            }
+            
+            .accordion-header {
+                background-color: #2a2a2a;
+                color: white;
+            }
+            
+            .accordion-content, .status-item {
+                background-color: #333;
+            }
+            
+            input, select, textarea, #support-search {
+                background-color: #333;
+                border-color: #444;
+                color: white;
+            }
+            
+            .system-status {
+                background: linear-gradient(135deg, #222 0%, #333 100%);
+            }
+            
+            .status-update, .status-message {
+                color: #ccc;
+            }
+            
+            .support-card p, .video-description, .accordion-content p {
+                color: #ccc;
+            }
+            
+            .support-card:hover {
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 0 1.5rem;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            nav {
+                padding: 0.5rem 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav a {
+                margin: 0.25rem 0.7rem;
+                font-size: 0.9rem;
+            }
+            
+            .support-grid, .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .section {
+                padding: 2rem;
+            }
+            
+            .status-indicators {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .brand-selector {
+                position: static;
+                margin: 1rem auto;
+                text-align: center;
+            }
+            
+            .search-button {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+            
+            .chat-widget {
+                bottom: 1rem;
+                right: 1rem;
+            }
+            
+            .chat-toggle {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .support-grid, .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-container {
+                flex-direction: column;
+            }
+            
+            .search-button {
+                position: static;
+                width: 100%;
+                margin-top: 1rem;
+                border-radius: 8px;
+            }
+            
+            #support-search {
+                border-radius: 8px;
+            }
+            
+            .status-indicators {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo img {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>            <!-- Legal & Compliance Section -->
+            <div class="section" id="legal">
+                <h2>Legal & Compliance</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-icon">⚖️</div>
+                        <h3>Compliance Resources</h3>
+                        <p>Resources for ensuring compliance with relevant regulations and standards.</p>
+                        <ul class="support-links">
+                            <li><a href="#gdpr-compliance">GDPR Compliance</a></li>
+                            <li><a href="#accessibility">Accessibility Standards</a></li>
+                            <li><a href="#hospitality-regulations">Hospitality Regulations</a></li>
+                            <li><a href="#tax-compliance">Tax Compliance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">📋</div>
+                        <h3>Legal Requirements</h3>
+                        <p>Information about legal requirements for operating in different jurisdictions.</p>
+                        <ul class="support-links">
+                            <li><a href="#licensing">Licensing Requirements</a></li>
+                            <li><a href="#permits">Permit Information</a></li>
+                            <li><a href="#insurance">Insurance Requirements</a></li>
+                            <li><a href="#business-registration">Business Registration</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">🔏</div>
+                        <h3>Privacy & Data</h3>
+                        <p>Guidance on privacy policies, data handling, and customer information management.</p>
+                        <ul class="support-links">
+                            <li><a href="#privacy-policy">Privacy Policy Templates</a></li>
+                            <li><a href="#data-handling">Data Handling Procedures</a></li>
+                            <li><a href="#breach-protocol">Breach Protocol</a></li>
+                            <li><a href="#data-subject-rights">Data Subject Rights</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">📜</div>
+                        <h3>Contracts & Agreements</h3>
+                        <p>Support for contract management, templates, and agreement review.</p>
+                        <ul class="support-links">
+                            <li><a href="#contract-templates">Contract Templates</a></li>
+                            <li><a href="#agreement-review">Agreement Review Process</a></li>
+                            <li><a href="#contract-management">Contract Management</a></li>
+                            <li><a href="#standard-terms">Standard Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Owner & Partner Resources Section -->
+            <div class="section" id="partners">
+                <h2>Owner & Partner Resources</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-icon">📊</div>
+                        <h3>Partner Dashboard</h3>
+                        <p>Help with using the partner dashboard for property and performance management.</p>
+                        <ul class="support-links">
+                            <li><a href="#dashboard-access">Dashboard Access</a></li>
+                            <li><a href="#performance-metrics">Performance Metrics</a></li>
+                            <li><a href="#revenue-reports">Revenue Reports</a></li>
+                            <li><a href="#dashboard-customization">Dashboard Customization</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">🏨</div>
+                        <h3>Property Management</h3>
+                        <p>Resources for managing property listings, availability, and settings.</p>
+                        <ul class="support-links">
+                            <li><a href="#property-listing">Property Listing</a></li>
+                            <li><a href="#availability-management">Availability Management</a></li>
+                            <li><a href="#property-settings">Property Settings</a></li>
+                            <li><a href="#content-management">Content Management</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">💰</div>
+                        <h3>Financial Services</h3>
+                        <p>Information about payments, payouts, and financial management.</p>
+                        <ul class="support-links">
+                            <li><a href="#payment-setup">Payment Setup</a></li>
+                            <li><a href="#payout-schedule">Payout Schedule</a></li>
+                            <li><a href="#tax-information">Tax Information</a></li>
+                            <li><a href="#financial-reporting">Financial Reporting</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">🤝</div>
+                        <h3>Partner Onboarding</h3>
+                        <p>Resources for new partners joining the PVT Group network.</p>
+                        <ul class="support-links">
+                            <li><a href="#onboarding-guide">Onboarding Guide</a></li>
+                            <li><a href="#integration-process">Integration Process</a></li>
+                            <li><a href="#partner-training">Partner Training</a></li>
+                            <li><a href="#brand-standards">Brand Standards</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Move, Add, Change (MAC) Requests Section -->
+            <div class="section" id="mac-requests">
+                <h2>Move, Add, Change (MAC) Requests</h2>
+                <p>Use this section to request changes to your system configuration, account setup, or to report issues that require technical intervention.</p>
+                
+                <div class="contact-form">
+                    <h3>Submit a MAC Request</h3>
+                    <form id="macRequestForm">
+                        <div class="form-group">
+                            <label for="organization">Organization/Brand</label>
+                            <select id="organization" name="organization" required>
+                                <option value="">Select Organization</option>
+                                <option value="pvt-main">PVT Hostel - Main Property</option>
+                                <option value="pvt-east">PVT Hostel - East Location</option>
+                                <option value="pvt-west">PVT Hostel - West Location</option>
+                                <option value="studionyne">StudioNYNE</option>
+                                <option value="king-legend">King Legend, Inc.</option>
+                                <option value="urban-stay">Urban Stay Hostels</option>
+                                <option value="other">Other (Please specify)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requestType">Request Type</label>
+                            <select id="requestType" name="requestType" required>
+                                <option value="">Select Request Type</option>
+                                <option value<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVT Hostel - Technical Support</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Lato', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #005f73;
+            --secondary-color: #0a9396;
+            --accent-color: #ca6702;
+            --light-color: #f2f2f2;
+            --dark-color: #333333;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Brand Selector */
+        .brand-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .brand-selector select {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .section {
+            max-width: 960px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #ee9b00;
+            transform: translateY(-3px);
+        }
+        
+        /* System Status */
+        .system-status {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .status-indicators {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            background-color: var(--light-color);
+            border-radius: 5px;
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .operational {
+            background-color: #10b981;
+        }
+        
+        .issue {
+            background-color: #f59e0b;
+        }
+        
+        .outage {
+            background-color: #ef4444;
+        }
+        
+        .status-name {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .status-message {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .status-update {
+            font-size: 0.85rem;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        
+        .view-history {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .view-history:hover {
+            text-decoration: underline;
+        }
+        
+        /* Search */
+        .search-container {
+            display: flex;
+            margin: 2rem 0;
+        }
+        
+        #support-search {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px 0 0 8px;
+            font-size: 1rem;
+        }
+        
+        .search-button {
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        /* Support Categories */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .support-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .support-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .support-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .support-links {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .support-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .support-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .support-links a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        /* Training Video Section */
+        .training-videos {
+            margin-top: 3rem;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .video-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .video-thumbnail {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .play-icon::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-left: 22px solid var(--primary-color);
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+        }
+        
+        .video-info {
+            padding: 1rem;
+        }
+        
+        .video-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-duration {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-description {
+            font-size: 0.9rem;
+            color: #444;
+        }
+        
+        /* FAQ Section */
+        .accordion {
+            margin-bottom: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            background-color: var(--light-color);
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .accordion-content {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: white;
+        }
+        
+        .accordion-content p {
+            padding: 1rem 0;
+        }
+        
+        .accordion.active .accordion-content {
+            max-height: 500px;
+        }
+        
+        /* Resource Links */
+        .resource-links {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .resource-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .resource-links a {
+            display: inline-block;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-links a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .chat-toggle:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: none;
+        }
+        
+        .chat-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-title {
+            font-weight: bold;
+        }
+        
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .chat-messages {
+            height: 320px;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        
+        .chat-input-container {
+            padding: 1rem;
+            border-top: 1px solid #eee;
+            display: flex;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+        
+        .send-message {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            margin-top: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            height: 150px;
+        }
+        
+        .file-upload {
+            margin-top: 1.5rem;
+        }
+        
+        .file-upload label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        
+        .upload-btn {
+            border: 2px dashed #ccc;
+            color: #666;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .upload-btn:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        .upload-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .upload-btn-wrapper input[type=file] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+        }
+        
+        .footer-content {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            padding: 0 1rem;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin-top: 0.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: var(--dark-color);
+                color: var(--light-color);
+            }
+            
+            .section, .system-status, .video-card {
+                background: #444;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            }
+            
+            .support-card {
+                background-color: #444;
+            }
+            
+            h1, h2, h3 {
+                color: var(--secondary-color);
+            }
+            
+            .accordion-header {
+                background-color: #444;
+                color: white;
+            }
+            
+            .accordion-content {
+                background-color: #555;
+            }
+            
+            input, select, textarea {
+                background-color: #555;
+                border: 1px solid #777;
+                color: white;
+            }
+            
+            .status-item {
+                background-color: #555;
+            }
+            
+            #support-search {
+                background-color: #555;
+                border-color: #777;
+                color: white;
+            }
+            
+            .upload-btn {
+                background-color: #555;
+                border-color: #777;
+                color: #ddd;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+            }
+            
+            nav a {
+                margin: 0.25rem 0.5rem;
+            }
+            
+            .support-grid, .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .status-indicators {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                margin: 0.5rem auto 0;
+            }
+            
+            .chat-window {
+                width: 90vw;
+                right: 5vw;
+            }
+            
+            .brand-selector {
+                position: static;
+                margin-top: 1rem;
+                text-align: center;
+            }
+        }
+    </style>}
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #ee9b00;
+            transform: translateY(-3px);
+        }
+        
+        /* Support Categories */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .support-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .support-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .support-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .support-links {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .support-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .support-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .support-links a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        /* FAQ Section */
+        .accordion {
+            margin-bottom: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            background-color: var(--light-color);
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .accordion-content {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: white;
+        }
+        
+        .accordion-content p {
+            padding: 1rem 0;
+        }
+        
+        .accordion.active .accordion-content {
+            max-height: 500px;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            margin-top: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+        }
+        
+        .footer-content {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            padding: 0 1rem;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin-top: 0.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: var(--dark-color);
+                color: var(--light-color);
+            }
+            
+            .section {
+                background: #444;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            }
+            
+            .support-card {
+                background-color: #444;
+            }
+            
+            h1, h2, h3 {
+                color: var(--secondary-color);
+            }
+            
+            .accordion-header {
+                background-color: #444;
+                color: white;
+            }
+            
+            .accordion-content {
+                background-color: #555;
+            }
+            
+            input, select, textarea {
+                background-color: #555;
+                border: 1px solid #777;
+                color: white;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                margin: 0.5rem auto 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand-selector">
+            <select id="organization-selector">
+                <option value="pvt-main">PVT Hostel - Main</option>
+                <option value="pvt-east">PVT Hostel - East</option>
+                <option value="pvt-west">PVT Hostel - West</option>
+                <option value="studionyne">StudioNYNE</option>
+                <option value="king-legend">King Legend, Inc.</option>
+                <option value="urban-stay">Urban Stay Hostels</option>
+            </select>
+        </div>
+        <div class="logo">
+            <img src="https://via.placeholder.com/50" alt="PVT Hostel Logo">
+            <div class="logo-text">PVT Hostel Support</div>
+        </div>
+        <nav>
+            <a href="#hospitality">Hospitality</a>
+            <a href="#media">Media & Creative</a>
+            <a href="#marketing">Marketing</a>
+            <a href="#consulting">Business Consulting</a>
+            <a href="#technology">Technology</a>
+            <a href="#legal">Legal & Compliance</a>
+            <a href="#partners">Owner Resources</a>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="system-status">
+                <h3>System Status</h3>
+                <div class="status-indicators">
+                    <div class="status-item">
+                        <span class="status-dot operational"></span>
+                        <span class="status-name">Booking Engine</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot operational"></span>
+                        <span class="status-name">Payment Processing</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot operational"></span>
+                        <span class="status-name">Channel Manager</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot operational"></span>
+                        <span class="status-name">Staff Portal</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot operational"></span>
+                        <span class="status-name">Guest Portal</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot issue"></span>
+                        <span class="status-name">Reporting System</span>
+                        <span class="status-message">Performance issues - under maintenance</span>
+                    </div>
+                </div>
+                <div class="status-update">
+                    Last Updated: May 5, 2025 - 08:32 EDT
+                    <a href="#detailed-status" class="view-history">View Incident History</a>
+                </div>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="support-search" placeholder="Search for support topics, FAQs, or documentation...">
+                <button class="search-button">Search</button>
+            </div>
+            
+            <div class="section" id="documentation">
+                <h2>Support Categories</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-icon">📱</div>
+                        <h3>Website Issues</h3>
+                        <p>Find solutions for problems with our website, including navigation, booking, and account access.</p>
+                        <ul class="support-links">
+                            <li><a href="#booking-system">Booking System</a></li>
+                            <li><a href="#account-access">Account Access</a></li>
+                            <li><a href="#payment-issues">Payment Issues</a></li>
+                            <li><a href="#browser-compatibility">Browser Compatibility</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">🔑</div>
+                        <h3>Guest Portal</h3>
+                        <p>Get help with the guest portal for managing your bookings, accessing resources, and communicating with staff.</p>
+                        <ul class="support-links">
+                            <li><a href="#portal-login">Portal Login</a></li>
+                            <li><a href="#reservation-management">Reservation Management</a></li>
+                            <li><a href="#guest-communications">Guest Communications</a></li>
+                            <li><a href="#portal-features">Portal Features</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">📝</div>
+                        <h3>API Documentation</h3>
+                        <p>Developer resources for integrating with our booking and availability API.</p>
+                        <ul class="support-links">
+                            <li><a href="#api-overview">API Overview</a></li>
+                            <li><a href="#authentication">Authentication</a></li>
+                            <li><a href="#endpoints">Endpoints</a></li>
+                            <li><a href="#code-examples">Code Examples</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">🔄</div>
+                        <h3>Integrations</h3>
+                        <p>Learn how to connect PVT Hostel with third-party services and applications.</p>
+                        <ul class="support-links">
+                            <li><a href="#channel-managers">Channel Managers</a></li>
+                            <li><a href="#payment-gateways">Payment Gateways</a></li>
+                            <li><a href="#email-marketing">Email Marketing</a></li>
+                            <li><a href="#accounting-software">Accounting Software</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">🏢</div>
+                        <h3>Multi-Brand Management</h3>
+                        <p>Resources for managing multiple brands and organizations across your hospitality portfolio.</p>
+                        <ul class="support-links">
+                            <li><a href="#brand-configuration">Brand Configuration</a></li>
+                            <li><a href="#cross-property-reporting">Cross-Property Reporting</a></li>
+                            <li><a href="#centralized-management">Centralized Management</a></li>
+                            <li><a href="#multi-brand-authentication">User Authentication</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">🔌</div>
+                        <h3>Channel Connectivity</h3>
+                        <p>Real-time status and troubleshooting for OTA integrations and distribution channels.</p>
+                        <ul class="support-links">
+                            <li><a href="#channel-status">Channel Status Dashboard</a></li>
+                            <li><a href="#sync-issues">Sync Troubleshooting</a></li>
+                            <li><a href="#mapping-problems">Property Mapping Issues</a></li>
+                            <li><a href="#api-errors">API Error Resolution</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">👥</div>
+                        <h3>Team Tools Support</h3>
+                        <p>Resources for staff systems, onboarding, and internal tool management.</p>
+                        <ul class="support-links">
+                            <li><a href="#staff-portal">Staff Portal Access</a></li>
+                            <li><a href="#check-in-system">Check-in System Guide</a></li>
+                            <li><a href="#housekeeping-dashboard">Housekeeping Tools</a></li>
+                            <li><a href="#shift-management">Shift Management</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-icon">🎓</div>
+                        <h3>Training Library</h3>
+                        <p>Comprehensive training materials for staff, managers, and property partners.</p>
+                        <ul class="support-links">
+                            <li><a href="#onboarding-guides">Onboarding Guides</a></li>
+                            <li><a href="#tutorial-videos">Tutorial Videos</a></li>
+                            <li><a href="#certification-paths">Certification Paths</a></li>
+                            <li><a href="#training-webinars">Recorded Webinars</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">⚙️</div>
+                        <h3>Automation Settings</h3>
+                        <p>Configure and manage automated workflows across your property portfolio.</p>
+                        <ul class="support-links">
+                            <li><a href="#guest-messaging">Automated Messaging</a></li>
+                            <li><a href="#self-check-in">Self Check-in Setup</a></li>
+                            <li><a href="#deposit-handling">Deposit Processing</a></li>
+                            <li><a href="#workflow-builder">Workflow Builder</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">🏠</div>
+                        <h3>Property Owner Dashboard</h3>
+                        <p>Resources for property owners and partners using our management platform.</p>
+                        <ul class="support-links">
+                            <li><a href="#owner-portal">Owner Portal Access</a></li>
+                            <li><a href="#listing-management">Listing Management</a></li>
+                            <li><a href="#payout-settings">Payout Configuration</a></li>
+                            <li><a href="#performance-analytics">Performance Analytics</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">📈</div>
+                        <h3>Revenue & Pricing Tools</h3>
+                        <p>Optimize revenue with dynamic pricing, promotions, and yield management.</p>
+                        <ul class="support-links">
+                            <li><a href="#smart-pricing">Smart Pricing Setup</a></li>
+                            <li><a href="#promotion-engine">Promotion Engine</a></li>
+                            <li><a href="#rate-strategies">Rate Strategies</a></li>
+                            <li><a href="#competitive-analysis">Competitive Analysis</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section" id="mac-requests">
+                <h2>Move, Add, Change (MAC) Requests</h2>
+                <p>Use this section to request changes to your system configuration, account setup, or to report issues that require technical intervention.</p>
+                
+                <div class="contact-form">
+                    <h3>Submit a MAC Request</h3>
+                    <form id="macRequestForm">
+                        <div class="form-group">
+                            <label for="organization">Organization/Brand</label>
+                            <select id="organization" name="organization" required>
+                                <option value="">Select Organization</option>
+                                <option value="pvt-main">PVT Hostel - Main Property</option>
+                                <option value="pvt-east">PVT Hostel - East Location</option>
+                                <option value="pvt-west">PVT Hostel - West Location</option>
+                                <option value="backpackers-lodge">Backpackers Lodge</option>
+                                <option value="urban-stay">Urban Stay Hostels</option>
+                                <option value="other">Other (Please specify)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requestType">Request Type</label>
+                            <select id="requestType" name="requestType" required>
+                                <option value="">Select Request Type</option>
+                                <option value="move">Move - Relocate Services/Data</option>
+                                <option value="add">Add - New Service/Account/Feature</option>
+                                <option value="change">Change - Modify Existing Configuration</option>
+                                <option value="remove">Remove - Discontinue Service/Account</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="priority">Priority Level</label>
+                            <select id="priority" name="priority" required>
+                                <option value="low">Low - Complete within 5 business days</option>
+                                <option value="medium">Medium - Complete within 2 business days</option>
+                                <option value="high">High - Complete within 24 hours</option>
+                                <option value="critical">Critical - Urgent (Business Impact)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requestName">Request Name</label>
+                            <input type="text" id="requestName" name="requestName" placeholder="Brief title for your request" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requestDescription">Detailed Description</label>
+                            <textarea id="requestDescription" name="requestDescription" placeholder="Please provide a detailed description of your request, including all relevant information needed to process it." rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requestorName">Requestor Name</label>
+                            <input type="text" id="requestorName" name="requestorName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requestorEmail">Requestor Email</label>
+                            <input type="email" id="requestorEmail" name="requestorEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requestorPhone">Requestor Phone</label>
+                            <input type="tel" id="requestorPhone" name="requestorPhone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="targetDate">Target Completion Date (if applicable)</label>
+                            <input type="date" id="targetDate" name="targetDate">
+                        </div>
+                        
+                        <button type="submit" class="cta-button">Submit MAC Request</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="section" id="multi-brand-resources">
+                <h2>Multi-Brand Resources</h2>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>Brand Style Guides & Assets</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Access brand guidelines, logos, color palettes, and approved marketing materials for each property in our portfolio. These resources ensure consistent branding across all properties while maintaining each brand's unique identity.</p>
+                        <ul class="resource-links">
+                            <li><a href="#">PVT Hostel Brand Bible</a></li>
+                            <li><a href="#">Backpackers Lodge Style Guide</a></li>
+                            <li><a href="#">Urban Stay Brand Assets</a></li>
+                            <li><a href="#">Logo Repository (All Brands)</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>Multi-Organization Management Dashboard</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Learn how to use our centralized management dashboard to oversee multiple properties, switch between different brands, and manage cross-property operations efficiently.</p>
+                        <ul class="resource-links">
+                            <li><a href="#">Dashboard User Guide</a></li>
+                            <li><a href="#">Administrative Controls</a></li>
+                            <li><a href="#">User Role Management</a></li>
+                            <li><a href="#">Video Tutorial: Multi-Brand Navigation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>Cross-Property Reporting</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Generate comprehensive reports across multiple properties and brands. Compare performance metrics, track occupancy rates, and analyze revenue data with our advanced reporting tools.</p>
+                        <ul class="resource-links">
+                            <li><a href="#">Report Builder Guide</a></li>
+                            <li><a href="#">Standard Report Templates</a></li>
+                            <li><a href="#">Data Export Options</a></li>
+                            <li><a href="#">Custom Metric Configuration</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>Multi-Brand Booking Integration</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Configure and manage the integrated booking system across multiple brands. Learn how to set up cross-property availability, implement consistent booking policies, and create brand-specific booking experiences.</p>
+                        <ul class="resource-links">
+                            <li><a href="#">Booking Engine Configuration</a></li>
+                            <li><a href="#">Brand-Specific Rate Plans</a></li>
+                            <li><a href="#">Cross-Property Availability</a></li>
+                            <li><a href="#">Reservation Transfer Process</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section" id="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>How do I reset my password?</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>To reset your password, click on the "Forgot Password" link on the login page. Enter your email address, and we'll send you a password reset link. Follow the instructions in the email to create a new password.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>Why can't I complete my booking?</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>There could be several reasons why you're unable to complete a booking: the room might no longer be available, there might be an issue with your payment method, or there could be a technical problem. Try refreshing the page, using a different browser, or clearing your cache. If the problem persists, please contact our support team.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>How do I modify my reservation?</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>You can modify your reservation by logging into the Guest Portal with your email and booking reference. Navigate to "My Bookings," select the reservation you want to modify, and click "Modify Reservation." From there, you can change dates, room types, or add services (subject to availability).</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>Is my payment information secure?</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, we take security seriously. All payment information is processed through secure, PCI-compliant payment gateways. We never store your full credit card details on our servers. Our website uses SSL encryption to protect all data transmitted between your browser and our servers.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>How do I connect to the hostel Wi-Fi?</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>You'll receive Wi-Fi access details upon check-in. Simply connect to the "PVT-Guest" network and enter the password provided. If you're having trouble connecting, please visit the reception desk for assistance.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section" id="contact">
+                <h2>Contact Support</h2>
+                <p>Need additional help? Our support team is available to assist you.</p>
+                                    <p>Email: <a href="mailto:hello@market.PVTHOSTEL.CA">hello@market.PVTHOSTEL.CA</a></p>
+                <p>Phone: 514-400-6369 (9 AM - 5 PM EST, Mon-Fri)</p>
+                
+                <div class="contact-form">
+                    <h3>Submit a Support Ticket</h3>
+                    <form id="supportForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Support Category</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select a category</option>
+                                <option value="website">Website Issues</option>
+                                <option value="portal">Guest Portal</option>
+                                <option value="booking">Booking Problems</option>
+                                <option value="payment">Payment Issues</option>
+                                <option value="api">API & Integrations</option>
+                                <option value="multibrand">Multi-Brand Support</option>
+                                <option value="mac">Move, Add, Change (MAC)</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="cta-button">Submit Ticket</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>PVT Hostel</h3>
+                    <p>4460 Christophe Colomb<br>Montreal, QC, H2J 3G5</p>
+                    <p>Phone: 514-400-6369<br>Email: INFO@PVTHOSTEL.CA</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.pvthostel.ca">Main Website</a></li>
+                        <li><a href="https://www.pvthostel.ca/booking">Make a Reservation</a></li>
+                        <li><a href="https://www.pvthostel.ca/rooms">Our Rooms</a></li>
+                        <li><a href="https://www.pvthostel.ca/events">Events & Activities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#documentation">Documentation</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact Support</a></li>
+                        <li><a href="#">System Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 PVT Hostel. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordions = document.querySelectorAll('.accordion');
+            
+            accordions.forEach(accordion => {
+                const header = accordion.querySelector('.accordion-header');
+                
+                header.addEventListener('click', function() {
+                    accordion.classList.toggle('active');
+                    
+                    // Update the icon
+                    const icon = this.querySelector('.accordion-icon');
+                    icon.textContent = accordion.classList.contains('active') ? '-' : '+';
+                });
+            });
+            
+            // Form submission handler
+            const supportForm = document.getElementById('supportForm');
+            
+            supportForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // In a real implementation, you would send the form data to a server
+                alert('Thank you for contacting support. We will respond to your inquiry soon.');
+                supportForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
