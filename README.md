@@ -44,6 +44,36 @@ A comprehensive technical support hub for PVT Group's hospitality and business p
 - Express Validator
 - Rate Limiting & Helmet (Security)
 
+## Demo Features (Working Now!)
+
+✅ **Live Demo Server** - Ready to test at `http://localhost:8080`
+
+**Frontend Features:**
+- ✅ Responsive multi-brand support hub
+- ✅ Real-time system status monitoring  
+- ✅ Interactive MAC request forms
+- ✅ Live chat widget with Socket.io
+- ✅ Dark/light mode toggle
+- ✅ Creative 404 page with upselling
+- ✅ Professional design with PVT branding
+
+**Backend Features:**
+- ✅ RESTful API with Express.js
+- ✅ Mock authentication system
+- ✅ MAC request creation and tracking  
+- ✅ Real-time WebSocket chat
+- ✅ System status API
+- ✅ Auto-reply chat bot
+- ✅ CORS and security headers
+
+**Interactive Elements:**
+- ✅ Form submissions with validation
+- ✅ Toast notifications
+- ✅ Real-time chat with typing indicators
+- ✅ Brand switching functionality
+- ✅ Search and filtering
+- ✅ Mobile-responsive design
+
 ## Brand Colors
 
 - Primary Blue: `#005f73`
@@ -87,6 +117,13 @@ A comprehensive technical support hub for PVT Group's hospitality and business p
    ```
 
 6. **Start the server**
+   
+   **Option A: Simple Demo Server (Recommended for testing)**
+   ```bash
+   PORT=8080 node simple-server.js
+   ```
+   
+   **Option B: Full Server (Requires PostgreSQL setup)**
    ```bash
    npm start
    # or for development with auto-reload
@@ -94,8 +131,9 @@ A comprehensive technical support hub for PVT Group's hospitality and business p
    ```
 
 7. **Access the application**
-   - Open browser to `http://localhost:5000`
-   - The API runs on the same port
+   - Demo server: `http://localhost:8080`
+   - Full server: `http://localhost:5000`
+   - The API runs on the same port as the frontend
 
 ### API Endpoints
 
