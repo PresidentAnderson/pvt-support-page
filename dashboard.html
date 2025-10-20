@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVT Support Dashboard - Management Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Hotelogix-Inspired Design System */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Hotelogix Color Palette */
+            --primary-green: #09B850;
+            --primary-dark: #0B141F;
+            --secondary-green: #07A047;
+            --light-green: #E8F5ED;
+            --success-green: #28A745;
+            --warning-orange: #FFC107;
+            --danger-red: #DC3545;
+            --info-blue: #17A2B8;
+            
+            /* Neutral Colors */
+            --white: #FFFFFF;
+            --gray-50: #F8F9FA;
+            --gray-100: #E9ECEF;
+            --gray-200: #DEE2E6;
+            --gray-300: #CED4DA;
+            --gray-400: #ADB5BD;
+            --gray-500: #6C757D;
+            --gray-600: #495057;
+            --gray-700: #343A40;
+            --gray-800: #212529;
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.25rem;
+            --radius-md: 0.313rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Layout */
+            --sidebar-width: 280px;
+            --header-height: 64px;
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --white: #1a1a1a;
+                --gray-50: #2a2a2a;
+                --gray-100: #333333;
+                --gray-200: #404040;
+                --gray-300: #4d4d4d;
+                --gray-400: #666666;
+                --gray-500: #808080;
+                --gray-600: #999999;
+                --gray-700: #b3b3b3;
+                --gray-800: #cccccc;
+            }
+            
+            body {
+                background-color: #1a1a1a;
+                color: #f0f0f0;
+            }
+            
+            .dashboard-layout {
+                background-color: #1a1a1a;
+            }
+            
+            .sidebar {
+                background-color: #0f0f0f;
+                border-color: #333;
+            }
+            
+            .main-content {
+                background-color: #1a1a1a;
+            }
+            
+            .top-bar {
+                background-color: #2a2a2a;
+                border-color: #333;
+            }
+            
+            .kpi-card {
+                background-color: #2a2a2a;
+                border-color: #333;
+                color: #f0f0f0;
+            }
+            
+            .panel {
+                background-color: #2a2a2a;
+                border-color: #333;
+                color: #f0f0f0;
+            }
+            
+            .data-table th {
+                background-color: #333;
+                color: #f0f0f0;
+            }
+            
+            .data-table td {
+                border-color: #333;
+                color: #f0f0f0;
+            }
+            
+            .action-panel {
+                background-color: #2a2a2a;
+                border-color: #333;
+                color: #f0f0f0;
+            }
+            
+            .nav-item {
+                color: #f0f0f0;
+            }
+            
+            .nav-item:hover {
+                background-color: #333;
+            }
+            
+            .nav-item.active {
+                background-color: var(--light-green);
+                color: var(--primary-green);
+            }
+            
+            .panel-title {
+                color: #f0f0f0;
+            }
+            
+            .action-panel-title {
+                color: #f0f0f0;
+            }
+            
+            .action-title {
+                color: #f0f0f0;
+            }
+            
+            .action-subtitle {
+                color: #ccc;
+            }
+        }
+        
+        body {
+            font-family: var(--font-family);
+            background-color: var(--gray-50);
+            color: var(--gray-700);
+            line-height: 1.5;
+            font-size: var(--font-size-base);
+        }
+        
+        /* Layout Structure */
+        .dashboard-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar Navigation */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--white);
+            border-right: 1px solid var(--gray-200);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .sidebar-header {
+            padding: var(--space-6) var(--space-5);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+        }
+        
+        .logo-text {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .nav-menu {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--space-4) 0;
+        }
+        
+        .nav-section {
+            margin-bottom: var(--space-6);
+        }
+        
+        .nav-section-title {
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0 var(--space-5) var(--space-2);
+            margin-bottom: var(--space-2);
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: var(--space-3) var(--space-5);
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border-right: 3px solid transparent;
+            gap: var(--space-3);
+        }
+        
+        .nav-item:hover {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+        }
+        
+        .nav-item.active {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            border-right-color: var(--primary-green);
+            font-weight: 500;
+        }
+        
+        .nav-item i {
+            width: 20px;
+            text-align: center;
+            font-size: var(--font-size-base);
+        }
+        
+        .nav-item-badge {
+            margin-left: auto;
+            background: var(--primary-green);
+            color: var(--white);
+            font-size: var(--font-size-xs);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+        }
+        
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Top Header */
+        .top-header {
+            height: var(--header-height);
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--space-6);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        
+        .header-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-input {
+            width: 300px;
+            padding: var(--space-2) var(--space-4) var(--space-2) var(--space-10);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            background: var(--gray-50);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(9, 184, 80, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: var(--space-3);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            cursor: pointer;
+            padding: var(--space-2);
+            border-radius: var(--radius-md);
+            transition: background-color 0.2s ease;
+        }
+        
+        .user-menu:hover {
+            background-color: var(--gray-50);
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        /* Dashboard Content */
+        .dashboard-content {
+            flex: 1;
+            padding: var(--space-6);
+            overflow-y: auto;
+        }
+        
+        /* KPI Cards Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+        
+        .kpi-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+            transition: all 0.2s ease;
+        }
+        
+        .kpi-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        
+        .kpi-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-4);
+        }
+        
+        .kpi-title {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .kpi-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-lg);
+        }
+        
+        .kpi-icon.success { background: var(--light-green); color: var(--success-green); }
+        .kpi-icon.warning { background: #FFF3CD; color: var(--warning-orange); }
+        .kpi-icon.danger { background: #F8D7DA; color: var(--danger-red); }
+        .kpi-icon.info { background: #D1ECF1; color: var(--info-blue); }
+        
+        .kpi-value {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: var(--space-2);
+        }
+        
+        .kpi-change {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--font-size-sm);
+        }
+        
+        .kpi-change.positive { color: var(--success-green); }
+        .kpi-change.negative { color: var(--danger-red); }
+        .kpi-change.neutral { color: var(--gray-500); }
+        
+        /* Reservation Chart Grid */
+        .chart-section {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-8);
+            overflow: hidden;
+        }
+        
+        .chart-header {
+            padding: var(--space-6);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: between;
+        }
+        
+        .chart-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .chart-controls {
+            display: flex;
+            gap: var(--space-3);
+            margin-left: auto;
+        }
+        
+        .btn {
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-300);
+            background: var(--white);
+            color: var(--gray-600);
+            font-size: var(--font-size-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            background: var(--gray-50);
+            border-color: var(--gray-400);
+        }
+        
+        .btn.primary {
+            background: var(--primary-green);
+            color: var(--white);
+            border-color: var(--primary-green);
+        }
+        
+        .btn.primary:hover {
+            background: var(--secondary-green);
+            border-color: var(--secondary-green);
+        }
+        
+        /* Grid Table */
+        .reservation-grid {
+            overflow-x: auto;
+        }
+        
+        .grid-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-size-sm);
+        }
+        
+        .grid-table th {
+            background: var(--gray-50);
+            padding: var(--space-3) var(--space-4);
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-200);
+            white-space: nowrap;
+        }
+        
+        .grid-table td {
+            padding: var(--space-3) var(--space-4);
+            border-bottom: 1px solid var(--gray-200);
+            vertical-align: middle;
+        }
+        
+        .grid-table tr:hover {
+            background: var(--gray-50);
+        }
+        
+        .status-badge {
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .status-badge.operational {
+            background: var(--light-green);
+            color: var(--success-green);
+        }
+        
+        .status-badge.pending {
+            background: #FFF3CD;
+            color: var(--warning-orange);
+        }
+        
+        .status-badge.degraded {
+            background: #F8D7DA;
+            color: var(--danger-red);
+        }
+        
+        .status-badge.in-progress {
+            background: #D1ECF1;
+            color: var(--info-blue);
+        }
+        
+        /* Quick Actions Panel */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .action-panel {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+        
+        .action-panel-header {
+            padding: var(--space-5);
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .action-panel-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .action-panel-content {
+            padding: var(--space-5);
+        }
+        
+        .action-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-3) 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        .action-item:last-child {
+            border-bottom: none;
+        }
+        
+        .action-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .action-content {
+            flex: 1;
+        }
+        
+        .action-title {
+            font-weight: 500;
+            color: var(--primary-dark);
+            margin-bottom: var(--space-1);
+        }
+        
+        .action-subtitle {
+            font-size: var(--font-size-sm);
+            color: var(--gray-500);
+        }
+        
+        .action-time {
+            font-size: var(--font-size-xs);
+            color: var(--gray-400);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .sidebar.mobile-open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .search-input {
+                width: 200px;
+            }
+            
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading States */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gray-200);
+            border-top: 2px solid var(--primary-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Utility Classes */
+        .text-success { color: var(--success-green); }
+        .text-warning { color: var(--warning-orange); }
+        .text-danger { color: var(--danger-red); }
+        .text-info { color: var(--info-blue); }
+        .text-muted { color: var(--gray-500); }
+        
+        .bg-success { background-color: var(--light-green); }
+        .bg-warning { background-color: #FFF3CD; }
+        .bg-danger { background-color: #F8D7DA; }
+        .bg-info { background-color: #D1ECF1; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-hotel"></i>
+                </div>
+                <div class="logo-text">PVT Support</div>
+            </div>
+            
+            <div class="nav-menu">
+                <div class="nav-section">
+                    <div class="nav-section-title">Dashboard</div>
+                    <a href="#overview" class="nav-item active">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Overview</span>
+                    </a>
+                    <a href="#analytics" class="nav-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Support</div>
+                    <a href="#tickets" class="nav-item">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Support Tickets</span>
+                        <span class="nav-item-badge">12</span>
+                    </a>
+                    <a href="#mac-requests" class="nav-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>MAC Requests</span>
+                        <span class="nav-item-badge">5</span>
+                    </a>
+                    <a href="#chat" class="nav-item">
+                        <i class="fas fa-comments"></i>
+                        <span>Live Chat</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">System</div>
+                    <a href="#status" class="nav-item">
+                        <i class="fas fa-server"></i>
+                        <span>System Status</span>
+                    </a>
+                    <a href="#properties" class="nav-item">
+                        <i class="fas fa-building"></i>
+                        <span>Properties</span>
+                    </a>
+                    <a href="#users" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Tools</div>
+                    <a href="#reports" class="nav-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports</span>
+                    </a>
+                    <a href="#settings" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <h1 class="header-title">Support Dashboard</h1>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" placeholder="Search tickets, users, properties...">
+                    </div>
+                    
+                    <div class="user-menu">
+                        <div class="user-avatar">DA</div>
+                        <div>
+                            <div style="font-weight: 500; font-size: 0.875rem;">Demo Admin</div>
+                            <div style="font-size: 0.75rem; color: var(--gray-500);">Administrator</div>
+                        </div>
+                        <i class="fas fa-chevron-down" style="color: var(--gray-400);"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <div class="kpi-title">Active Tickets</div>
+                            <div class="kpi-icon success">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value">247</div>
+                        <div class="kpi-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+12% from last week</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <div class="kpi-title">Avg Response Time</div>
+                            <div class="kpi-icon info">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value">2.4h</div>
+                        <div class="kpi-change negative">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>-8% improvement</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <div class="kpi-title">System Uptime</div>
+                            <div class="kpi-icon success">
+                                <i class="fas fa-server"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value">99.8%</div>
+                        <div class="kpi-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+0.2% this month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <div class="kpi-title">Satisfaction Score</div>
+                            <div class="kpi-icon warning">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value">4.6</div>
+                        <div class="kpi-change neutral">
+                            <i class="fas fa-minus"></i>
+                            <span>No change</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reservation Chart Style Grid -->
+                <div class="chart-section">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Recent Support Activity</h2>
+                        <div class="chart-controls">
+                            <button class="btn">Today</button>
+                            <button class="btn">Week</button>
+                            <button class="btn primary">Month</button>
+                            <button class="btn">Export</button>
+                        </div>
+                    </div>
+                    
+                    <div class="reservation-grid">
+                        <table class="grid-table">
+                            <thead>
+                                <tr>
+                                    <th>Ticket ID</th>
+                                    <th>Property</th>
+                                    <th>Issue Type</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                    <th>Assigned To</th>
+                                    <th>Created</th>
+                                    <th>Last Update</th>
+                                </tr>
+                            </thead>
+                            <tbody id="support-grid">
+                                <tr>
+                                    <td><strong>TKT-2024-001</strong></td>
+                                    <td>PVT Hostel - Main</td>
+                                    <td>Booking Engine</td>
+                                    <td><span class="status-badge degraded">High</span></td>
+                                    <td><span class="status-badge in-progress">In Progress</span></td>
+                                    <td>Sarah Johnson</td>
+                                    <td>2 hours ago</td>
+                                    <td>30 mins ago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MAC-2024-012</strong></td>
+                                    <td>StudioNYNE</td>
+                                    <td>Add Service</td>
+                                    <td><span class="status-badge pending">Medium</span></td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>Mike Chen</td>
+                                    <td>4 hours ago</td>
+                                    <td>1 hour ago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TKT-2024-002</strong></td>
+                                    <td>PVT Hostel - East</td>
+                                    <td>Payment Gateway</td>
+                                    <td><span class="status-badge operational">Low</span></td>
+                                    <td><span class="status-badge operational">Resolved</span></td>
+                                    <td>Alex Rivera</td>
+                                    <td>1 day ago</td>
+                                    <td>6 hours ago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MAC-2024-013</strong></td>
+                                    <td>Urban Stay Hostels</td>
+                                    <td>Change Config</td>
+                                    <td><span class="status-badge pending">Medium</span></td>
+                                    <td><span class="status-badge in-progress">In Progress</span></td>
+                                    <td>Lisa Park</td>
+                                    <td>1 day ago</td>
+                                    <td>3 hours ago</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions Grid -->
+                <div class="quick-actions">
+                    <div class="action-panel">
+                        <div class="action-panel-header">
+                            <h3 class="action-panel-title">Recent MAC Requests</h3>
+                        </div>
+                        <div class="action-panel-content">
+                            <div class="action-item">
+                                <div class="action-icon bg-success">
+                                    <i class="fas fa-plus text-success"></i>
+                                </div>
+                                <div class="action-content">
+                                    <div class="action-title">Add Payment Gateway</div>
+                                    <div class="action-subtitle">StudioNYNE - Stripe Integration</div>
+                                </div>
+                                <div class="action-time">2h ago</div>
+                            </div>
+                            
+                            <div class="action-item">
+                                <div class="action-icon bg-warning">
+                                    <i class="fas fa-exchange-alt text-warning"></i>
+                                </div>
+                                <div class="action-content">
+                                    <div class="action-title">Change Room Configuration</div>
+                                    <div class="action-subtitle">PVT East - Room Types Update</div>
+                                </div>
+                                <div class="action-time">4h ago</div>
+                            </div>
+                            
+                            <div class="action-item">
+                                <div class="action-icon bg-danger">
+                                    <i class="fas fa-trash text-danger"></i>
+                                </div>
+                                <div class="action-content">
+                                    <div class="action-title">Remove Old Integration</div>
+                                    <div class="action-subtitle">King Legend - Legacy API</div>
+                                </div>
+                                <div class="action-time">1d ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-panel">
+                        <div class="action-panel-header">
+                            <h3 class="action-panel-title">System Alerts</h3>
+                        </div>
+                        <div class="action-panel-content">
+                            <div class="action-item">
+                                <div class="action-icon bg-success">
+                                    <i class="fas fa-check-circle text-success"></i>
+                                </div>
+                                <div class="action-content">
+                                    <div class="action-title">All Systems Operational</div>
+                                    <div class="action-subtitle">99.8% uptime maintained</div>
+                                </div>
+                                <div class="action-time">Live</div>
+                            </div>
+                            
+                            <div class="action-item">
+                                <div class="action-icon bg-warning">
+                                    <i class="fas fa-exclamation-triangle text-warning"></i>
+                                </div>
+                                <div class="action-content">
+                                    <div class="action-title">Reporting System Slow</div>
+                                    <div class="action-subtitle">Performance degradation detected</div>
+                                </div>
+                                <div class="action-time">1h ago</div>
+                            </div>
+                            
+                            <div class="action-item">
+                                <div class="action-icon bg-info">
+                                    <i class="fas fa-info-circle text-info"></i>
+                                </div>
+                                <div class="action-content">
+                                    <div class="action-title">Maintenance Scheduled</div>
+                                    <div class="action-subtitle">Tomorrow 2:00 AM - 4:00 AM EST</div>
+                                </div>
+                                <div class="action-time">Upcoming</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Socket.io for real-time updates -->
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/dashboard.js"></script>
+    
+    <script>
+        // Dashboard initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize real-time updates
+            initializeDashboard();
+            
+            // Load live data
+            loadDashboardData();
+            
+            // Set up navigation
+            setupNavigation();
+        });
+        
+        function initializeDashboard() {
+            // Update time stamps every minute
+            setInterval(updateTimeStamps, 60000);
+            
+            // Refresh KPI data every 5 minutes
+            setInterval(loadDashboardData, 300000);
+        }
+        
+        async function loadDashboardData() {
+            if (window.dashboardManager) {
+                await window.dashboardManager.loadSystemStatus();
+                await window.dashboardManager.loadRecentRequests();
+            }
+        }
+        
+        function updateSystemStatus(statusData) {
+            // Update system status indicators based on real data
+            const operationalServices = statusData.filter(s => s.status === 'operational').length;
+            const totalServices = statusData.length;
+            const uptime = ((operationalServices / totalServices) * 100).toFixed(1);
+            
+            // Update uptime KPI
+            const uptimeElement = document.querySelector('.kpi-value');
+            if (uptimeElement) {
+                uptimeElement.textContent = uptime + '%';
+            }
+        }
+        
+        function updateTimeStamps() {
+            const timeElements = document.querySelectorAll('.action-time');
+            timeElements.forEach(element => {
+                if (element.textContent.includes('ago')) {
+                    // Update relative timestamps
+                    const hours = parseInt(element.textContent);
+                    if (!isNaN(hours)) {
+                        element.textContent = (hours + 1) + 'h ago';
+                    }
+                }
+            });
+        }
+        
+        function setupNavigation() {
+            // Handle sidebar navigation clicks
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all items
+                    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Update header title based on selection
+                    const title = this.querySelector('span').textContent;
+                    document.querySelector('.header-title').textContent = title;
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-input');
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase();
+                filterDashboardContent(query);
+            });
+        }
+        
+        function filterDashboardContent(query) {
+            if (!query) return;
+            
+            // Filter support grid
+            const gridRows = document.querySelectorAll('#support-grid tr');
+            gridRows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        }
+        
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('mobile-open');
+        }
+        
+        // Add mobile menu button functionality if needed
+        if (window.innerWidth <= 768) {
+            const header = document.querySelector('.top-header');
+            const menuButton = document.createElement('button');
+            menuButton.innerHTML = '<i class="fas fa-bars"></i>';
+            menuButton.className = 'btn';
+            menuButton.style.marginRight = 'var(--space-4)';
+            menuButton.onclick = toggleSidebar;
+            header.insertBefore(menuButton, header.firstChild);
+        }
+    </script>
+</body>
+</html>

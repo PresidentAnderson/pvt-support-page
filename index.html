@@ -81,6 +81,49 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #f0f0f0;
+            }
+            
+            .section, .video-card {
+                background: #2a2a2a;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            }
+            
+            .status-item {
+                background-color: #2a2a2a;
+            }
+            
+            .status-name {
+                color: #f0f0f0 !important;
+            }
+            
+            .status-message {
+                color: #ccc !important;
+            }
+            
+            h1, h2, h3 {
+                color: var(--secondary-teal);
+            }
+            
+            input, select, textarea {
+                background-color: #333;
+                color: #f0f0f0;
+                border-color: #555;
+            }
+            
+            .chat-widget {
+                background-color: #2a2a2a;
+            }
+            
+            .chat-body {
+                background-color: #333;
+            }
+        }
         
         /* Header Styling */
         header {
@@ -312,6 +355,7 @@
             margin-right: 12px;
             font-family: var(--heading-font);
             font-size: 0.95rem;
+            color: #333;
         }
         
         .status-message {

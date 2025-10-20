@@ -33,9 +33,22 @@ app.use(express.static(path.join(__dirname), {
 
 app.use('/js', express.static(path.join(__dirname, 'public', 'js')));
 
-// Serve the main page
+// Serve the main page (dashboard)
 app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dashboard.html'));
+});
+
+// Serve individual pages
+app.get('/index', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dashboard.html'));
+});
+
+app.get('/support', (req, res) => {
+  res.sendFile(path.join(__dirname, 'support-page.html'));
 });
 
 // Mock API endpoints for demo
