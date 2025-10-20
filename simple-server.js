@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 const path = require('path');
 const { createServer } = require('http');
 const { Server } = require('socket.io');
@@ -230,8 +231,16 @@ io.on('connection', (socket) => {
   });
 });
 
-// 404 handler
-app.get('*', (req, res) => {
+// Rate limiter: max 100 requests per 15 minutes per IP
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
+// 404 handler with rate-limiting
+app.get('*', limiter, (req, res) => {
   const notFoundPath = path.join(__dirname, 'pvt-404-page.html');
   res.sendFile(notFoundPath);
 });
